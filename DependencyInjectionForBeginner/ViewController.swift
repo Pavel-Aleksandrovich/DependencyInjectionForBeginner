@@ -8,21 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    private var viewModel: ViewModel?
+    
+    private let viewModel = DependencyFactory().provideViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let storage = Storage()
-        let dataManager = DataManager(storage: storage)
-        viewModel = ViewModel(dataManager: dataManager)
-        viewModel?.save()
+        
+        viewModel.save()
     }
-    
 }
 
 class ViewModel {
     private let dataManager: DataManager
+    
     
     init(dataManager: DataManager) {
         self.dataManager = dataManager
@@ -46,8 +44,18 @@ class DataManager {
 }
 
 class Storage {
-
+    
     func save() {
         print("Save")
+    }
+}
+
+class DependencyFactory {
+    
+    func provideViewModel() -> ViewModel {
+        let storage = Storage()
+        let dataManager = DataManager(storage: storage)
+        let viewModel = ViewModel(dataManager: dataManager)
+        return viewModel
     }
 }
