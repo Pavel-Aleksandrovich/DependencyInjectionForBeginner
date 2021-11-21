@@ -13,6 +13,10 @@
 		847B3669274902D700729F58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847B3667274902D700729F58 /* Main.storyboard */; };
 		847B366B274902D800729F58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847B366A274902D800729F58 /* Assets.xcassets */; };
 		847B366E274902D800729F58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847B366C274902D800729F58 /* LaunchScreen.storyboard */; };
+		847B3676274A09BA00729F58 /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B3675274A09BA00729F58 /* ViewControllerViewModel.swift */; };
+		847B3678274A09DD00729F58 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B3677274A09DD00729F58 /* DataManager.swift */; };
+		847B367A274A09F100729F58 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B3679274A09F100729F58 /* RemoteDataSource.swift */; };
+		847B367C274A0A0000729F58 /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B367B274A0A0000729F58 /* DependencyFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		847B366A274902D800729F58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		847B366D274902D800729F58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		847B366F274902D800729F58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847B3675274A09BA00729F58 /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
+		847B3677274A09DD00729F58 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		847B3679274A09F100729F58 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		847B367B274A0A0000729F58 /* DependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,59 @@
 		847B3660274902D700729F58 /* DependencyInjectionForBeginner */ = {
 			isa = PBXGroup;
 			children = (
+				847B3682274A0AB800729F58 /* Application */,
+				847B3684274A0BDA00729F58 /* Presentation */,
+				847B3685274A0C5D00729F58 /* Data */,
+				847B3686274A0C9B00729F58 /* DI */,
+				847B3683274A0AEC00729F58 /* Resources */,
+			);
+			path = DependencyInjectionForBeginner;
+			sourceTree = "<group>";
+		};
+		847B3682274A0AB800729F58 /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				847B3661274902D700729F58 /* AppDelegate.swift */,
 				847B3663274902D700729F58 /* SceneDelegate.swift */,
-				847B3665274902D700729F58 /* ViewController.swift */,
-				847B3667274902D700729F58 /* Main.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		847B3683274A0AEC00729F58 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				847B366A274902D800729F58 /* Assets.xcassets */,
 				847B366C274902D800729F58 /* LaunchScreen.storyboard */,
 				847B366F274902D800729F58 /* Info.plist */,
 			);
-			path = DependencyInjectionForBeginner;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		847B3684274A0BDA00729F58 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				847B3665274902D700729F58 /* ViewController.swift */,
+				847B3667274902D700729F58 /* Main.storyboard */,
+				847B3675274A09BA00729F58 /* ViewControllerViewModel.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		847B3685274A0C5D00729F58 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				847B3677274A09DD00729F58 /* DataManager.swift */,
+				847B3679274A09F100729F58 /* RemoteDataSource.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		847B3686274A0C9B00729F58 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				847B367B274A0A0000729F58 /* DependencyFactory.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +190,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				847B3666274902D700729F58 /* ViewController.swift in Sources */,
+				847B3678274A09DD00729F58 /* DataManager.swift in Sources */,
 				847B3662274902D700729F58 /* AppDelegate.swift in Sources */,
 				847B3664274902D700729F58 /* SceneDelegate.swift in Sources */,
+				847B367A274A09F100729F58 /* RemoteDataSource.swift in Sources */,
+				847B367C274A0A0000729F58 /* DependencyFactory.swift in Sources */,
+				847B3676274A09BA00729F58 /* ViewControllerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +344,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PZRD3MXDYZ;
-				INFOPLIST_FILE = DependencyInjectionForBeginner/Info.plist;
+				INFOPLIST_FILE = DependencyInjectionForBeginner/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +363,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PZRD3MXDYZ;
-				INFOPLIST_FILE = DependencyInjectionForBeginner/Info.plist;
+				INFOPLIST_FILE = DependencyInjectionForBeginner/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
