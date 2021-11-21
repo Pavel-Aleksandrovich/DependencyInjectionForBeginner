@@ -17,13 +17,26 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel.save()
-        let movies = viewModel.fetchMovies()
-        print(movies)
+        showLoader()
+        
+        viewModel.fetchMovies(){ movies in
+            print(movies)
+            self.hideLoader()
+        }
     }
     
-    func initLabel() {
+    private func initLabel() {
         label.frame = CGRect(x: 0, y: 0, width: 200, height: 100)
     }
+    
+    private func showLoader() {
+        
+    }
+    
+    private func hideLoader() {
+        
+    }
+    
 }
 
 

@@ -9,12 +9,22 @@ import UIKit
 
 class RemoteDataSource {
     
-    func save() {
-        print("Save")
+    func save(name: String) {
+        print(name)
     }
     
-    func fetchMovies() -> Array<String> {
+    func fetchMovies(closure: @escaping (Array<String>) -> ()) {
         let myArray = ["movie1", "movie2", "movie3"]
-        return myArray
+         delay(3) {
+            closure(myArray)
+         }
     }
+    
+    private func delay(_ delay: Int, closure: @escaping () -> () ) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(delay)) {
+            closure()
+        }
+    }
+    
+    
 }

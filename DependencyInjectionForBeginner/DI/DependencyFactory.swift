@@ -10,8 +10,8 @@ import UIKit
 final class DependencyFactory {
     
     func provideViewModel() -> ViewControllerViewModel {
-        let storage = RemoteDataSource()
-        let dataManager = DataManager(storage: storage)
+        let remoteDataSource = RemoteDataSource()
+        let dataManager = DataManager(remoteDataSource: remoteDataSource)
         let viewModel = ViewControllerViewModel(dataManager: dataManager)
         return viewModel
     }

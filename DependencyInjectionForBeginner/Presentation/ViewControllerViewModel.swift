@@ -9,16 +9,18 @@ import UIKit
 
 final class ViewControllerViewModel {
     private let dataManager: DataManager
-    
+
     init(dataManager: DataManager) {
         self.dataManager = dataManager
     }
     
     func save() {
-        dataManager.save()
+        let name: String = "test"
+        dataManager.save(name: name)
+        
     }
     
-    func fetchMovies() -> Array<String> {
-        dataManager.fetchMovies()
+    func fetchMovies(closure: @escaping (Array<String>) -> ()) {
+        dataManager.fetchMovies(closure: closure)
     }
 }

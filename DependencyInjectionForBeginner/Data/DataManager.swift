@@ -8,17 +8,17 @@
 import UIKit
 
 class DataManager {
-    private let storage: RemoteDataSource
+    private let remoteDataSource: RemoteDataSource
     
-    init(storage: RemoteDataSource) {
-        self.storage = storage
+    init(remoteDataSource: RemoteDataSource) {
+        self.remoteDataSource = remoteDataSource
     }
     
-    func save() {
-        storage.save()
+    func save(name: String) {
+        remoteDataSource.save(name: name)
     }
     
-    func fetchMovies() -> Array<String> {
-        return storage.fetchMovies()
+    func fetchMovies(closure: @escaping (Array<String>) -> ()) {
+         remoteDataSource.fetchMovies(closure: closure)
     }
 }
