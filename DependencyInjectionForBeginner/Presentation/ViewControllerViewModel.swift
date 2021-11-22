@@ -14,10 +14,11 @@ final class ViewControllerViewModel {
         self.dataManager = dataManager
     }
     
+    let title = "Title"
+    
     func save() {
         let name: String = "test"
         dataManager.save(name: name)
-        
     }
     
     func fetchMovies(closure: @escaping (Array<String>) -> ()) {

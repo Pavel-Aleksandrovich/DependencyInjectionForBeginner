@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = viewModel.title
+        view.backgroundColor = .green
         viewModel.save()
         showLoader()
         
