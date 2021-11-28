@@ -21,7 +21,7 @@ final class ViewControllerViewModel {
         dataManager.save(name: name)
     }
     
-    func fetchMovies(closure: @escaping (Array<String>) -> ()) {
-        dataManager.fetchMovies(closure: closure)
+    func fetchMovies(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<String>) -> ()) {
+        dataManager.fetchMovies(errorClosure: errorClosure, successClosure: successClosure)
     }
 }

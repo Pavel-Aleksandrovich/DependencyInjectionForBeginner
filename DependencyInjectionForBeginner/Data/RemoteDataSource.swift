@@ -13,11 +13,17 @@ class RemoteDataSource {
         print(name)
     }
     
-    func fetchMovies(closure: @escaping (Array<String>) -> ()) {
-        let myArray = ["movie1", "movie2", "movie3"]
-         delay(3) {
-            closure(myArray)
-         }
+    
+    
+    func fetchMovies(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<String>) -> ()) {
+        delay(3) {
+            let myArray = ["movie1", "movie2", "movie3"]
+            if myArray.count < 5 {
+                errorClosure()
+            } else {
+                successClosure(myArray)
+            }
+        }
     }
     
     private func delay(_ delay: Int, closure: @escaping () -> () ) {
