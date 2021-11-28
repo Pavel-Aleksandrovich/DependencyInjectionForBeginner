@@ -18,7 +18,7 @@ class DataManager {
         remoteDataSource.save(name: name)
     }
     
-    func fetchMovies(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<String>) -> ()) {
+    func fetchMovies(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<Animal>) -> ()) {
         remoteDataSource.fetchMovies(errorClosure: errorClosure, successClosure: successClosure)
     }
 }
