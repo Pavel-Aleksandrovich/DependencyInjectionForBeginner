@@ -21,7 +21,7 @@ final class ViewControllerViewModel {
         dataManager.save(name: name)
     }
     
-    func fetchMovies(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<Animal>) -> ()) {
-        dataManager.fetchMovies(errorClosure: errorClosure, successClosure: successClosure)
+    func fetchAnimals(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<AnimalDto>) -> ()) {
+        dataManager.fetchAnimals(errorClosure: errorClosure, successClosure: successClosure)
     }
 }

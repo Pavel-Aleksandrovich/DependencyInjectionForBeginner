@@ -17,6 +17,9 @@
 		847B3678274A09DD00729F58 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B3677274A09DD00729F58 /* DataManager.swift */; };
 		847B367A274A09F100729F58 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B3679274A09F100729F58 /* RemoteDataSource.swift */; };
 		847B367C274A0A0000729F58 /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B367B274A0A0000729F58 /* DependencyFactory.swift */; };
+		847B36F1275C67EA00729F58 /* DetailAnimalsVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B36F0275C67E900729F58 /* DetailAnimalsVo.swift */; };
+		847B36F4275C68EA00729F58 /* GenerelAnimalsVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B36F3275C68EA00729F58 /* GenerelAnimalsVo.swift */; };
+		847B36F7275C7A9F00729F58 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B36F6275C7A9F00729F58 /* Converter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		847B3677274A09DD00729F58 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		847B3679274A09F100729F58 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
 		847B367B274A0A0000729F58 /* DependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactory.swift; sourceTree = "<group>"; };
+		847B36F0275C67E900729F58 /* DetailAnimalsVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAnimalsVo.swift; sourceTree = "<group>"; };
+		847B36F3275C68EA00729F58 /* GenerelAnimalsVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerelAnimalsVo.swift; sourceTree = "<group>"; };
+		847B36F6275C7A9F00729F58 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,8 @@
 			children = (
 				847B3677274A09DD00729F58 /* DataManager.swift */,
 				847B3679274A09F100729F58 /* RemoteDataSource.swift */,
+				847B36F5275C7A8500729F58 /* Converter */,
+				847B36F2275C67F700729F58 /* Vo */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -117,6 +125,23 @@
 				847B367B274A0A0000729F58 /* DependencyFactory.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		847B36F2275C67F700729F58 /* Vo */ = {
+			isa = PBXGroup;
+			children = (
+				847B36F0275C67E900729F58 /* DetailAnimalsVo.swift */,
+				847B36F3275C68EA00729F58 /* GenerelAnimalsVo.swift */,
+			);
+			path = Vo;
+			sourceTree = "<group>";
+		};
+		847B36F5275C7A8500729F58 /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				847B36F6275C7A9F00729F58 /* Converter.swift */,
+			);
+			path = Converter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,10 +214,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847B36F1275C67EA00729F58 /* DetailAnimalsVo.swift in Sources */,
 				847B3666274902D700729F58 /* ListViewController.swift in Sources */,
 				847B3678274A09DD00729F58 /* DataManager.swift in Sources */,
 				847B3662274902D700729F58 /* AppDelegate.swift in Sources */,
+				847B36F7275C7A9F00729F58 /* Converter.swift in Sources */,
 				847B3664274902D700729F58 /* SceneDelegate.swift in Sources */,
+				847B36F4275C68EA00729F58 /* GenerelAnimalsVo.swift in Sources */,
 				847B367A274A09F100729F58 /* RemoteDataSource.swift in Sources */,
 				847B367C274A0A0000729F58 /* DependencyFactory.swift in Sources */,
 				847B3676274A09BA00729F58 /* ViewControllerViewModel.swift in Sources */,

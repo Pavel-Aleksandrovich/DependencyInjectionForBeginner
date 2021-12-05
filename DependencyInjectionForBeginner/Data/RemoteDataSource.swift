@@ -16,13 +16,13 @@ class RemoteDataSource {
     
     
     
-    func fetchMovies(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<Animal>) -> ()) {
+    func fetchMovies(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<AnimalDto>) -> ()) {
         delay(3) { [self] in
             handleResponce(errorClosure: errorClosure, successClosure: successClosure)
         }
     }
     
-    private func handleResponce(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<Animal>) -> ()) {
+    private func handleResponce(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<AnimalDto>) -> ()) {
         if getAnimals().count < 5 {
             errorClosure()
         } else {
@@ -30,14 +30,10 @@ class RemoteDataSource {
         }
     }
     
-    private func getAnimals() -> Array<Animal> {
-       return [
-            Animal(id: "1", name: "monkey"),
-            Animal(id: "2", name: "elephant"),
-            Animal(id: "3", name: "monkey"),
-            Animal(id: "4", name: "elephant"),
-            Animal(id: "5", name: "monkey"),
-            Animal(id: "6", name: "elephant")
+    private func getAnimals() -> Array<AnimalDto> {
+        return [
+            AnimalDto(id: "fe", name: "ere", avatar: "svf", age: 34, weight: 2220),
+            AnimalDto(id: "reg", name: "ger", avatar: "egr", age: 43, weight: 2027)
         ]
     }
     
@@ -48,12 +44,18 @@ class RemoteDataSource {
     }
 }
 
-class Animal {
+class AnimalDto {
     let id  : String
     let name: String
+    let avatar: String
+    let age: Int
+    let weight: Int
     
-    init(id: String, name: String) {
+    init(id: String, name: String, avatar: String, age: Int, weight: Int) {
         self.id = id
         self.name = name
+        self.age = age
+        self.avatar = avatar
+        self.weight = weight
     }
 }

@@ -22,7 +22,6 @@ class ListViewController: UIViewController {
         viewModel.save()
         showLoader()
         initLabel()
-        
     }
     
     private func alerActivityIndicator() {
@@ -53,7 +52,7 @@ class ListViewController: UIViewController {
 //            print(movies)
 //            self.hideLoader()
 //        }
-        viewModel.fetchMovies(errorClosure: {
+        viewModel.fetchAnimals(errorClosure: {
             // show alert error
             // hide loader
         }, successClosure: { [ weak self ] movies in
