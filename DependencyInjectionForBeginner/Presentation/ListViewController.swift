@@ -98,7 +98,13 @@ class ListViewController: UIViewController {
 }
 
 extension ListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        let vc = DetailViewController()
+        vc.title = cell?.textLabel?.text
+        navigationController?.pushViewController(vc, animated: false)
+        
+    }
 }
 
 extension ListViewController: UITableViewDataSource {
@@ -175,6 +181,9 @@ class ListViewControllerCell: UITableViewCell {
     
 }
 
+class DetailViewController: UIViewController {
+    
+}
 
 
 
