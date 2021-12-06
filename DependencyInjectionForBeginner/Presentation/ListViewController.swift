@@ -13,9 +13,23 @@ class ListViewController: UIViewController {
     private let label = UILabel()
     private let activityIndicatorView = UIActivityIndicatorView()
     private let viewModel = DependencyFactory().provideViewModel()
+    private var animalAge = [GenerelAnimalsVo]()
+    private let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
         
         title = viewModel.title
         view.backgroundColor = .red
@@ -45,7 +59,7 @@ class ListViewController: UIViewController {
     private func initLabel() {
         label.frame = CGRect(x: 0, y: 0, width: 300, height: 100)
         label.center = view.center
-        view.addSubview(label)
+//        view.addSubview(label)
         
 //        viewModel.fetchMovies(){ movies in
 //            self.label.text = "\(movies)"
@@ -56,10 +70,10 @@ class ListViewController: UIViewController {
             // show alert error
             // hide loader
         }, successClosure: { [ weak self ] animals in
-            var animalAge = [GenerelAnimalsVo]()
-            animalAge = animals
-            self?.label.text = animalAge[0].avatar
-            print(animalAge[0].avatar)
+            
+            self?.animalAge = animals
+//            self?.label.text = self?.animalAge[0].avatar
+            print(self?.animalAge[0].avatar)
             self?.hideLoader()
         })
         
@@ -77,7 +91,20 @@ class ListViewController: UIViewController {
     
 }
 
+extension ListViewController: UITableViewDelegate {
+    
+}
 
+extension ListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return animalAge.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+}
 
 
 
