@@ -55,9 +55,11 @@ class ListViewController: UIViewController {
         viewModel.fetchAnimals(errorClosure: {
             // show alert error
             // hide loader
-        }, successClosure: { [ weak self ] movies in
-            self?.label.text = "\(movies)"
-            print(movies)
+        }, successClosure: { [ weak self ] animals in
+            var animalAge = [GenerelAnimalsVo]()
+            animalAge = animals
+            self?.label.text = animalAge[0].avatar
+            print(animalAge[0].avatar)
             self?.hideLoader()
         })
         

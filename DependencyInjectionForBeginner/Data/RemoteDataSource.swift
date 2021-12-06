@@ -23,7 +23,7 @@ class RemoteDataSource {
     }
     
     private func handleResponce(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<AnimalDto>) -> ()) {
-        if getAnimals().count < 5 {
+        if getAnimals().count < 1 {
             errorClosure()
         } else {
             successClosure(getAnimals())
@@ -32,7 +32,7 @@ class RemoteDataSource {
     
     private func getAnimals() -> Array<AnimalDto> {
         return [
-            AnimalDto(id: "fe", name: "ere", avatar: "svf", age: 34, weight: 2220),
+            AnimalDto(id: "1995", name: "Pavel", avatar: "The best", age: 26, weight: 70),
             AnimalDto(id: "reg", name: "ger", avatar: "egr", age: 43, weight: 2027)
         ]
     }

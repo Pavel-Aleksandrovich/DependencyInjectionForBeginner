@@ -21,7 +21,7 @@ final class ViewControllerViewModel {
         dataManager.save(name: name)
     }
     
-    func fetchAnimals(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<AnimalDto>) -> ()) {
+    func fetchAnimals(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<GenerelAnimalsVo>) -> ()) {
         dataManager.fetchAnimals(errorClosure: errorClosure, successClosure: successClosure)
     }
 }
