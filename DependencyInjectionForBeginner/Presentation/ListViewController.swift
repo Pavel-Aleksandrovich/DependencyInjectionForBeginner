@@ -24,7 +24,7 @@ class ListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(ListViewControllerCell.self, forCellReuseIdentifier: "cell")
+//        tableView.register(ListViewControllerCell.self, forCellReuseIdentifier: "cell")
         
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -75,8 +75,6 @@ class ListViewController: UIViewController {
         }, successClosure: { [ weak self ] animals in
             
             self?.animalList = animals
-//            self?.label.text = self?.animalAge[0].avatar
-//            print(self?.animalAge[0].avatar)
             self?.hideLoader()
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
@@ -101,7 +99,6 @@ extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         let vc = DetailViewController()
-        vc.title = cell?.textLabel?.text
         navigationController?.pushViewController(vc, animated: false)
         
     }
@@ -117,73 +114,17 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListViewControllerCell
         
-        cell.textLabel?.text = animalList[indexPath.row].name
-        cell.detailTextLabel?.text = animalList[indexPath.row].id
-//        print(animalList[0].name)
-//        cell.
-        
-        return cell
+        return ListViewControllerCell.init(
+            name: "name: \(animalList[indexPath.row].name)",
+            avatar: animalList[indexPath.row].avatar,
+            id: animalList[indexPath.row].id)
     }
     
 }
 
-class ListViewControllerCell: UITableViewCell {
-    
-//    private let idLabel = UILabel()
-//    private let nameLabel = UILabel()
-//    private let avatarLabel = UILabel()
-//    private let stackView = UIStackView()
-    
-    override init(style: UITableViewCell.CellStyle , reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-    }
-    
-    
-//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-//        super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        initUI()
-//
-//    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-//   private func initUI() {
-//
-//    contentView.addSubview(stackView)
-//    stackView.addArrangedSubview(nameLabel)
-//    stackView.addArrangedSubview(avatarLabel)
-//    stackView.addArrangedSubview(idLabel)
-//
-//    [stackView, nameLabel, avatarLabel, idLabel].forEach{
-//        $0.translatesAutoresizingMaskIntoConstraints = false
-//    }
-//
-//    stackView.axis = .vertical
-//    stackView.alignment = .leading
-//    stackView.distribution = .fillEqually
-//    stackView.spacing = 5
-//
-//    NSLayoutConstraint.activate([
-//        stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-//        stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-//        stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-//        stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-//
-//        nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-//        nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-//        nameLabel.heightAnchor.constraint(equalToConstant: 20)
-//    ])
-//    }
-    
-}
 
-class DetailViewController: UIViewController {
-    
-}
+
 
 
 

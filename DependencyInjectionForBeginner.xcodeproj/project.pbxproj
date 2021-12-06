@@ -20,6 +20,8 @@
 		847B36F1275C67EA00729F58 /* DetailAnimalsVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B36F0275C67E900729F58 /* DetailAnimalsVo.swift */; };
 		847B36F4275C68EA00729F58 /* GenerelAnimalsVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B36F3275C68EA00729F58 /* GenerelAnimalsVo.swift */; };
 		847B36F7275C7A9F00729F58 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B36F6275C7A9F00729F58 /* Converter.swift */; };
+		847B36F9275DE23E00729F58 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B36F8275DE23E00729F58 /* DetailViewController.swift */; };
+		847B36FB275DE28500729F58 /* ListViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B36FA275DE28500729F58 /* ListViewControllerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		847B36F0275C67E900729F58 /* DetailAnimalsVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAnimalsVo.swift; sourceTree = "<group>"; };
 		847B36F3275C68EA00729F58 /* GenerelAnimalsVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerelAnimalsVo.swift; sourceTree = "<group>"; };
 		847B36F6275C7A9F00729F58 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		847B36F8275DE23E00729F58 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		847B36FA275DE28500729F58 /* ListViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				847B3665274902D700729F58 /* ListViewController.swift */,
+				847B36F8275DE23E00729F58 /* DetailViewController.swift */,
+				847B36FA275DE28500729F58 /* ListViewControllerCell.swift */,
 				847B3667274902D700729F58 /* Main.storyboard */,
 				847B3675274A09BA00729F58 /* ViewControllerViewModel.swift */,
 			);
@@ -214,11 +220,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847B36F9275DE23E00729F58 /* DetailViewController.swift in Sources */,
 				847B36F1275C67EA00729F58 /* DetailAnimalsVo.swift in Sources */,
 				847B3666274902D700729F58 /* ListViewController.swift in Sources */,
 				847B3678274A09DD00729F58 /* DataManager.swift in Sources */,
 				847B3662274902D700729F58 /* AppDelegate.swift in Sources */,
 				847B36F7275C7A9F00729F58 /* Converter.swift in Sources */,
+				847B36FB275DE28500729F58 /* ListViewControllerCell.swift in Sources */,
 				847B3664274902D700729F58 /* SceneDelegate.swift in Sources */,
 				847B36F4275C68EA00729F58 /* GenerelAnimalsVo.swift in Sources */,
 				847B367A274A09F100729F58 /* RemoteDataSource.swift in Sources */,
