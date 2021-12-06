@@ -32,8 +32,9 @@ class RemoteDataSource {
     
     private func getAnimals() -> Array<AnimalDto> {
         return [
-            AnimalDto(id: "1995", name: "Pavel", avatar: "The best", age: 26, weight: 70),
-            AnimalDto(id: "reg", name: "ger", avatar: "egr", age: 43, weight: 2027)
+            AnimalDto(id: "1995", name: "Mr. Pavel", avatar: "The best", age: 26, weight: 70),
+            AnimalDto(id: "2003", name: "Mr. Black", avatar: "The worse", age: 18, weight: 55),
+            AnimalDto(id: "2010", name: "Mr. Ivan", avatar: "Good", age: 11, weight: 37)
         ]
     }
     
