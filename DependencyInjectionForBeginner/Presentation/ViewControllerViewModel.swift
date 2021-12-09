@@ -14,7 +14,7 @@ final class ViewControllerViewModel {
         self.dataManager = dataManager
     }
     
-    let title = "Title"
+    let title = "ListViewController"
     
     func save() {
         let name: String = "test"

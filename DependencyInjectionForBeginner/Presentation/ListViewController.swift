@@ -15,7 +15,6 @@ class ListViewController: UIViewController {
     private let viewModel = DependencyFactory().provideViewModel()
     private var animalList = [GenerelAnimalsVo]()
     private let tableView = UITableView()
-    let testArray = ["aaa", "fff"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,8 +96,13 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
+//        let cell = tableView.cellForRow(at: indexPath)
+        
         let vc = DetailViewController()
+        vc.title = animalList[indexPath.row].name
+        vc.name = animalList[indexPath.row].name
+        vc.age = animalList[indexPath.row].id
+        vc.weight = animalList[indexPath.row].avatar
         navigationController?.pushViewController(vc, animated: false)
         
     }
