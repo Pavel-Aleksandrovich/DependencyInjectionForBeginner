@@ -7,26 +7,29 @@
 
 import Foundation
 
-final class Converter {
-    func dtoToVo(dtoArray: Array<AnimalDto>) -> Array<GenerelAnimalsVo> {
+final class Converter: BaseConverter {
+    
+    func convert(source: AnimalDto) -> GenerelAnimalsVo {
+        return GenerelAnimalsVo(id: source.id, name: source.name, avatar: source.avatar)
+    }
+    
+    func convertArray(sourceArray: Array<AnimalDto>) -> Array<GenerelAnimalsVo> {
         var newGeneralAnimals = [GenerelAnimalsVo]()
         
-        for dto in dtoArray {
+        for dto in sourceArray {
             let generalAnimal = convert(source: dto)
             newGeneralAnimals.append(generalAnimal)
         }
         return newGeneralAnimals
     }
-    
-    private func convert(source: AnimalDto) -> GenerelAnimalsVo {
-        return GenerelAnimalsVo(id: source.id, name: source.name, avatar: source.avatar)
-    }
 }
 
 protocol BaseConverter {
     
-    func convertArray<S, R>(sourceArray: Array<S>) -> Array<R>
+    associatedtype S
+    associatedtype R
     
-    func convert<S, R>(source: S) -> R
+    func convertArray(sourceArray: Array<S>) -> Array<R>
     
+    func convert(source: S) -> R
 }

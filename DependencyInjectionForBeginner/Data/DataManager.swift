@@ -21,7 +21,7 @@ class DataManager {
     func fetchAnimals(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<GenerelAnimalsVo>) -> ()) {
         remoteDataSource.fetchMovies(errorClosure: errorClosure, successClosure: { array in
             
-            let converter = Converter().dtoToVo(dtoArray: array)
+            let converter = Converter().convertArray(sourceArray: array)
             successClosure(converter)
         })
     }
