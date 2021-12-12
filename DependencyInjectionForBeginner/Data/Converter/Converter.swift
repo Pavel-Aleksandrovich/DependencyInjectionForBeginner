@@ -12,9 +12,13 @@ final class Converter {
         var newGeneralAnimals = [GenerelAnimalsVo]()
         
         for dto in dtoArray {
-            let generalAnimal = GenerelAnimalsVo(id: dto.id, name: dto.name, avatar: dto.avatar)
+            let generalAnimal = convert(source: dto)
             newGeneralAnimals.append(generalAnimal)
         }
         return newGeneralAnimals
+    }
+    
+    private func convert(source: AnimalDto) -> GenerelAnimalsVo {
+        return GenerelAnimalsVo(id: source.id, name: source.name, avatar: source.avatar)
     }
 }
