@@ -22,3 +22,11 @@ final class Converter {
         return GenerelAnimalsVo(id: source.id, name: source.name, avatar: source.avatar)
     }
 }
+
+protocol BaseConverter {
+    
+    func convertArray<S, R>(sourceArray: Array<S>) -> Array<R>
+    
+    func convert<S, R>(source: S) -> R
+    
+}
