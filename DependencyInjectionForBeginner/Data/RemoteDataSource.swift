@@ -9,12 +9,9 @@ import UIKit
 
 class RemoteDataSource {
     
-    
     func save(name: String) {
         print(name)
     }
-    
-    
     
     func fetchMovies(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<AnimalDto>) -> ()) {
         delay(3) { [self] in
