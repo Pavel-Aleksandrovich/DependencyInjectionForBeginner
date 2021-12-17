@@ -10,9 +10,10 @@ import UIKit
 class DetailViewController: UIViewController {
     
     private let tableView = UITableView()
-    var name = String()
-    var age = String()
-    var weight = String()
+//    var name = String()
+//    var age = String()
+//    var weight = String()
+    var animalsArray = GenerelAnimalsVo(id: "", name: "", avatar: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +33,9 @@ extension DetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return DetailViewControllerCell(
-            name: name,
-            age: age,
-            weight: weight
+            name: animalsArray.name,
+            age: animalsArray.id,
+            weight: animalsArray.avatar
         )
     }
     

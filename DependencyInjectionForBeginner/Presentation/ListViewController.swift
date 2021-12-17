@@ -99,10 +99,11 @@ extension ListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
         
         let vc = DetailViewController()
-        vc.title = animalList[indexPath.row].name
-        vc.name = animalList[indexPath.row].name
-        vc.age = animalList[indexPath.row].id
-        vc.weight = animalList[indexPath.row].avatar
+//        vc.title = animalList[indexPath.row].name
+//        vc.name = animalList[indexPath.row].name
+//        vc.age = animalList[indexPath.row].id
+//        vc.weight = animalList[indexPath.row].avatar
+        vc.animalsArray = animalList[indexPath.row]
         navigationController?.pushViewController(vc, animated: false)
         
     }
