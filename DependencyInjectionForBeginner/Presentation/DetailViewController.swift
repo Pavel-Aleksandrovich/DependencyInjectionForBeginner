@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
 //    var name = String()
 //    var age = String()
 //    var weight = String()
-    var animalsArray = GenerelAnimalsVo(id: "", name: "", avatar: "")
+    var animalsArray: GenerelAnimalsVo!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
         
         layoutConstraints()
     }

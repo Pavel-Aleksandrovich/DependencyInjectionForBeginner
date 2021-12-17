@@ -9,33 +9,39 @@ import UIKit
 
 class ListViewControllerCell: UITableViewCell {
     
-    private let idLabel = UILabel()
-    private let nameLabel = UILabel()
-    private let avatarLabel = UILabel()
+     let idLabel = UILabel()
+     let nameLabel = UILabel()
+     let avatarLabel = UILabel()
     private let stackView = UIStackView()
     
-    private let id: String
-    private let name: String
-    private let avatar: String
+//     var id: String
+//     var name: String
+//     var avatar: String
     
-    init(name: String?, avatar: String?, id: String?) {
-        self.name = name!
-        self.avatar = avatar!
-        self.id = id!
-        super.init(style: .default, reuseIdentifier: "cell")
+//    init(name: String?, avatar: String?, id: String?, reuseIdentifier: String?) {
+//        self.name = name!
+//        self.avatar = avatar!
+//        self.id = id!
+//        super.init(style: .default, reuseIdentifier: reuseIdentifier)
+//        initUI()
+//        add()
+//    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         initUI()
-        add()
+//        add()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func add() {
-        idLabel.text = id
-        nameLabel.text = name
-        avatarLabel.text = avatar
-    }
+//    private func add() {
+//        idLabel.text = id
+//        nameLabel.text = name
+//        avatarLabel.text = avatar
+//    }
     
    private func initUI() {
 

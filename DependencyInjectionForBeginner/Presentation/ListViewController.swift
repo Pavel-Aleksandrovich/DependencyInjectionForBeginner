@@ -19,6 +19,8 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(ListViewControllerCell.self, forCellReuseIdentifier: "ListCell")
+        
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
@@ -37,6 +39,8 @@ class ListViewController: UIViewController {
         viewModel.save()
         showLoader()
         initLabel()
+        
+        tableView.tableFooterView = UIView()
     }
     
     private func alerActivityIndicator() {
@@ -96,6 +100,7 @@ class ListViewController: UIViewController {
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let cell = tableView.cellForRow(at: indexPath)
+//        cell?.accessoryType = .checkmark
         tableView.deselectRow(at: indexPath, animated: false)
         
         let vc = DetailViewController()
@@ -120,10 +125,19 @@ extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        return ListViewControllerCell.init(
-            name: "name: \(animalList[indexPath.row].name)",
-            avatar: animalList[indexPath.row].avatar,
-            id: animalList[indexPath.row].id)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! ListViewControllerCell
+        
+        cell.nameLabel.text = animalList[indexPath.row].name
+        cell.idLabel.text = animalList[indexPath.row].id
+        cell.avatarLabel.text = animalList[indexPath.row].avatar
+        
+        cell.accessoryType = .disclosureIndicator
+        
+        return cell
+//        return ListViewControllerCell.init(
+//            name: "name: \(animalList[indexPath.row].name)",
+//            avatar: animalList[indexPath.row].avatar,
+//            id: animalList[indexPath.row].id)
     }
     
 }
