@@ -15,11 +15,12 @@ class ListViewController: UIViewController {
     private let viewModel = DependencyFactory().provideViewModel()
     private var animalList = [GenerelAnimalsVo]()
     private let tableView = UITableView()
+    private let identifier = "ListCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(ListViewControllerCell.self, forCellReuseIdentifier: "ListCell")
+        tableView.register(ListViewControllerCell.self, forCellReuseIdentifier: identifier)
         
         view.addSubview(tableView)
         tableView.dataSource = self
@@ -32,8 +33,7 @@ class ListViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
-        
+        navigationController?.navigationBar.prefersLargeTitles = true
         title = viewModel.title
         view.backgroundColor = .red
         viewModel.save()
@@ -64,13 +64,13 @@ class ListViewController: UIViewController {
     private func initLabel() {
         label.frame = CGRect(x: 0, y: 0, width: 300, height: 100)
         label.center = view.center
-//        view.addSubview(label)
+        //        view.addSubview(label)
         
-//        viewModel.fetchMovies(){ movies in
-//            self.label.text = "\(movies)"
-//            print(movies)
-//            self.hideLoader()
-//        }
+        //        viewModel.fetchMovies(){ movies in
+        //            self.label.text = "\(movies)"
+        //            print(movies)
+        //            self.hideLoader()
+        //        }
         viewModel.fetchAnimals(errorClosure: {
             // show alert error
             // hide loader
@@ -82,11 +82,10 @@ class ListViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         })
-        
     }
     
     private func showLoader() {
-//        activityIndicator()
+        //        activityIndicator()
         alerActivityIndicator()
     }
     
@@ -99,15 +98,11 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let cell = tableView.cellForRow(at: indexPath)
-//        cell?.accessoryType = .checkmark
+        //        let cell = tableView.cellForRow(at: indexPath)
+        //        cell?.accessoryType = .checkmark
         tableView.deselectRow(at: indexPath, animated: false)
         
         let vc = DetailViewController()
-//        vc.title = animalList[indexPath.row].name
-//        vc.name = animalList[indexPath.row].name
-//        vc.age = animalList[indexPath.row].id
-//        vc.weight = animalList[indexPath.row].avatar
         vc.animalsArray = animalList[indexPath.row]
         navigationController?.pushViewController(vc, animated: false)
         
@@ -125,7 +120,7 @@ extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! ListViewControllerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ListViewControllerCell
         
         cell.nameLabel.text = animalList[indexPath.row].name
         cell.idLabel.text = animalList[indexPath.row].id
@@ -134,12 +129,7 @@ extension ListViewController: UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
         
         return cell
-//        return ListViewControllerCell.init(
-//            name: "name: \(animalList[indexPath.row].name)",
-//            avatar: animalList[indexPath.row].avatar,
-//            id: animalList[indexPath.row].id)
     }
-    
 }
 
 
