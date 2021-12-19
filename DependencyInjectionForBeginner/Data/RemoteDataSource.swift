@@ -8,7 +8,7 @@
 import UIKit
 
 class RemoteDataSource {
-    
+    static let shared = RemoteDataSource()
     func save(name: String) {
         print(name)
     }
@@ -40,9 +40,27 @@ class RemoteDataSource {
             closure()
         }
     }
+    func jsonDecod() -> [AnimalDTO2] {
+        let path = Bundle.main.url(forResource: "Example", withExtension: "json")
+        
+        let data = try? Data(contentsOf: path!)
+        //try? Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
+        let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: .mutableLeaves)
+        let result = try? JSONDecoder().decode([AnimalDTO2].self, from: data!)
+            // do stuff
+//            print(data)
+//            print(jsonResult)
+//            print(result)
+            return result!
+    }
+    
+}
+struct AnimalDTO2: Codable{
+    let name: String
+    let id: String
 }
 
-class AnimalDto {
+class AnimalDto: Codable {
     let id  : String
     let name: String
     let avatar: String

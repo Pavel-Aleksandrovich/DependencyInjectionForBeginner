@@ -16,10 +16,11 @@ class ListViewController: UIViewController {
     private var animalList = [GenerelAnimalsVo]()
     private let tableView = UITableView()
     private let identifier = "ListCell"
+    private var animalArray = [AnimalDTO2]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        animalArray = RemoteDataSource.shared.jsonDecod()
         tableView.register(ListViewControllerCell.self, forCellReuseIdentifier: identifier)
         
         view.addSubview(tableView)
@@ -111,7 +112,7 @@ extension ListViewController: UITableViewDelegate {
 
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animalList.count
+        return animalArray.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -122,9 +123,9 @@ extension ListViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ListViewControllerCell
         
-        cell.nameLabel.text = animalList[indexPath.row].name
-        cell.idLabel.text = animalList[indexPath.row].id
-        cell.avatarLabel.text = animalList[indexPath.row].avatar
+        cell.nameLabel.text = animalArray[indexPath.row].name
+        cell.idLabel.text = animalArray[indexPath.row].id
+//        cell.avatarLabel.text = animalList[indexPath.row].avatar
         
         cell.accessoryType = .disclosureIndicator
         
