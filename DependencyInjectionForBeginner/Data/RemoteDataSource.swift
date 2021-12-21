@@ -42,7 +42,6 @@ class RemoteDataSource {
     }
     func jsonDecod() -> [AnimalDTO2] {
         let path = Bundle.main.url(forResource: "Example", withExtension: "json")
-        
         let data = try? Data(contentsOf: path!)
         //try? Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
         let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: .mutableLeaves)

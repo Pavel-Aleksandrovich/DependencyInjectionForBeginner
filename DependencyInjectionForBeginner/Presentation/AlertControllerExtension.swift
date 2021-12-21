@@ -18,7 +18,9 @@ extension UIViewController {
             let textSecond = alertController.textFields?[1]
             
             guard let textOne = textFirst?.text, let textTwo = textSecond?.text else { return }
-            complition(AnimalDTO2.init(name: "\(textOne)", id: "\(textTwo)"))
+            if textOne != "" || textTwo != "" {
+                complition(AnimalDTO2.init(name: "\(textOne)", id: "\(textTwo)"))
+            }
             
         }
         alertController.addTextField { textFieldFirst in
