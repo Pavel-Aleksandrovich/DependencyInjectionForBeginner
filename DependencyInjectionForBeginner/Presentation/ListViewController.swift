@@ -22,12 +22,16 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         animalArray = RemoteDataSource.shared.jsonDecod()
         tableView.register(ListViewControllerCell.self, forCellReuseIdentifier: identifier)
-        
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
+        addElement(title: "Add", message: nil) { [ weak self ] AnimalDTO2 in
+            self?.animalArray.append(AnimalDTO2)
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
