@@ -26,12 +26,7 @@ class ListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        addElement(title: "Add", message: nil) { [ weak self ] AnimalDTO2 in
-            self?.animalArray.append(AnimalDTO2)
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }
+        
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -44,8 +39,22 @@ class ListViewController: UIViewController {
         viewModel.save()
         showLoader()
         initLabel()
-        
+        addElement()
+        addAlert()
         tableView.tableFooterView = UIView()
+    }
+    
+    private func addElement() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAlert))
+    }
+    
+    @objc private func addAlert() {
+        addElement(title: "Add", message: nil) { [ weak self ] AnimalDTO2 in
+            self?.animalArray.append(AnimalDTO2)
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
     
     private func alerActivityIndicator() {
