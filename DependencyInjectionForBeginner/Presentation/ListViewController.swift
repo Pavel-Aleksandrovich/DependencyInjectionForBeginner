@@ -21,7 +21,7 @@ class ListViewController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     
     private var searchBarIsEmpty: Bool {
-        guard let text = searchController.searchBar.text else {return false}
+        guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
     }
     
@@ -125,9 +125,7 @@ class ListViewController: UIViewController {
         activityIndicatorView.stopAnimating()
         alert.dismiss(animated: false, completion: nil)
     }
-    
 }
-
 // MARK: - UITableViewDelegate
 
 extension ListViewController: UITableViewDelegate {
@@ -146,10 +144,8 @@ extension ListViewController: UITableViewDelegate {
         
 //        vc.animalsArray = animalList[indexPath.row]
         navigationController?.pushViewController(vc, animated: false)
-        
     }
 }
-
 // MARK: - UITableViewDataSource
 
 extension ListViewController: UITableViewDataSource {
@@ -187,7 +183,6 @@ extension ListViewController: UITableViewDataSource {
         return cell
     }
 }
-
 // MARK: - UISearchResultsUpdating
 
 extension ListViewController: UISearchResultsUpdating {
