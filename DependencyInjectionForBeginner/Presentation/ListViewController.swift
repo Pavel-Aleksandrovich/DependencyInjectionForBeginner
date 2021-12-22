@@ -193,7 +193,7 @@ extension ListViewController: UISearchResultsUpdating {
     
     private func filterContentForSearchText(_ searchText: String) {
         filterArray = animalArray.filter {
-            $0.name.contains(searchText)
+            $0.name.lowercased().contains(searchText.lowercased())
         }
         tableView.reloadData()
     }
