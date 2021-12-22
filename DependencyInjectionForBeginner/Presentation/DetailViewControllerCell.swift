@@ -14,11 +14,11 @@ class DetailViewControllerCell: UITableViewCell {
     private var ageLabel = UILabel()
     private var weightLabel = UILabel()
     
-    private let name: String
-    private let age: String
-    private let weight: String
+    private let name: String?
+    private let age: String?
+    private let weight: String?
     
-    init(name: String, age: String, weight: String) {
+    init(name: String?, age: String?, weight: String?) {
         self.name = name
         self.age = age
         self.weight = weight

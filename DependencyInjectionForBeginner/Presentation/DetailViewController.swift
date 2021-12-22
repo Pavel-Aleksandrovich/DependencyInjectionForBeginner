@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
 //    var age = String()
 //    var weight = String()
     var animalsArray: GenerelAnimalsVo!
+    var secondArray: AnimalDTO2!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +35,9 @@ extension DetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return DetailViewControllerCell(
-            name: animalsArray.name,
-            age: animalsArray.id,
-            weight: animalsArray.avatar
+            name: secondArray.name,
+            age: secondArray.id,
+            weight: nil
         )
     }
     

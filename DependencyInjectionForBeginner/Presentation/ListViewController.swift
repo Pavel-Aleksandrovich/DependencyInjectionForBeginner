@@ -17,6 +17,7 @@ class ListViewController: UIViewController {
     private let tableView = UITableView()
     private let identifier = "ListCell"
     private var animalArray = [AnimalDTO2]()
+    private var filterArray = [AnimalDTO2]()
     private let searchController = UISearchController(searchResultsController: nil)
     
     private var searchBarIsEmpty: Bool {
@@ -127,6 +128,8 @@ class ListViewController: UIViewController {
     
 }
 
+// MARK: - UITableViewDelegate
+
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //        let cell = tableView.cellForRow(at: indexPath)
@@ -134,14 +137,28 @@ extension ListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
         
         let vc = DetailViewController()
-        vc.animalsArray = animalList[indexPath.row]
+        
+        if isFiltering {
+            vc.secondArray = filterArray[indexPath.row]
+        } else {
+            vc.secondArray = animalArray[indexPath.row]
+        }
+        
+//        vc.animalsArray = animalList[indexPath.row]
         navigationController?.pushViewController(vc, animated: false)
         
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if isFiltering {
+            return filterArray.count
+        }
+        
         return animalArray.count
     }
     
@@ -153,9 +170,17 @@ extension ListViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ListViewControllerCell
         
-        cell.nameLabel.text = animalArray[indexPath.row].name
-        cell.idLabel.text = animalArray[indexPath.row].id
-//        cell.avatarLabel.text = animalList[indexPath.row].avatar
+        var arrayRow: AnimalDTO2
+        
+        if isFiltering {
+            arrayRow = filterArray[indexPath.row]
+        } else {
+            arrayRow = animalArray[indexPath.row]
+        }
+        
+        cell.nameLabel.text = arrayRow.name
+        cell.idLabel.text = arrayRow.id
+        //        cell.avatarLabel.text = animalList[indexPath.row].avatar
         
         cell.accessoryType = .disclosureIndicator
         
@@ -168,8 +193,15 @@ extension ListViewController: UITableViewDataSource {
 extension ListViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
     }
     
+    private func filterContentForSearchText(_ searchText: String) {
+        filterArray = animalArray.filter {
+            $0.name.contains(searchText)
+        }
+        tableView.reloadData()
+    }
     
 }
 
