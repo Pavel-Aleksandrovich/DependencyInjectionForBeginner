@@ -23,12 +23,8 @@ extension UIViewController {
             }
             
         }
-        alertController.addTextField { textFieldFirst in
-            
-        }
-        alertController.addTextField { textFieldSecond in
-            
-        }
+        alertController.addTextField()
+        alertController.addTextField()
         alertController.addAction(action)
         
         present(alertController, animated: false, completion: nil)
