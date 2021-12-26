@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
+class AnimalListViewController: UIViewController {
     
     private let alert = UIAlertController(title: nil, message: "Please Wait ...", preferredStyle: .alert)
     private let label = UILabel()
@@ -32,7 +32,7 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         animalArray = RemoteDataSource.shared.jsonDecod()
-        tableView.register(ListViewControllerCell.self, forCellReuseIdentifier: identifier)
+        tableView.register(AnimalCell.self, forCellReuseIdentifier: identifier)
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
@@ -128,13 +128,13 @@ class ListViewController: UIViewController {
 }
 // MARK: - UITableViewDelegate
 
-extension ListViewController: UITableViewDelegate {
+extension AnimalListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //        let cell = tableView.cellForRow(at: indexPath)
         //        cell?.accessoryType = .checkmark
         tableView.deselectRow(at: indexPath, animated: false)
         
-        let vc = DetailViewController()
+        let vc = AnimalDetailViewController()
         
         if isFiltering {
             vc.secondArray = filterArray[indexPath.row]
@@ -148,7 +148,7 @@ extension ListViewController: UITableViewDelegate {
 }
 // MARK: - UITableViewDataSource
 
-extension ListViewController: UITableViewDataSource {
+extension AnimalListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if isFiltering {
@@ -164,7 +164,7 @@ extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ListViewControllerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! AnimalCell
         
         var arrayRow: AnimalDTO2
         
@@ -185,7 +185,7 @@ extension ListViewController: UITableViewDataSource {
 }
 // MARK: - UISearchResultsUpdating
 
-extension ListViewController: UISearchResultsUpdating {
+extension AnimalListViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)

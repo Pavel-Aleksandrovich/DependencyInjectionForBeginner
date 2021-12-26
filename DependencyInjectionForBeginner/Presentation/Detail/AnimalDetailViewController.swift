@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class AnimalDetailViewController: UIViewController {
     
     private let tableView = UITableView()
 //    var name = String()
@@ -28,13 +28,13 @@ class DetailViewController: UIViewController {
     }
 }
 
-extension DetailViewController: UITableViewDataSource {
+extension AnimalDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return DetailViewControllerCell(
+        return AnimalDetailCell(
             name: secondArray.name,
             age: secondArray.id,
             weight: nil
@@ -43,7 +43,7 @@ extension DetailViewController: UITableViewDataSource {
     
 }
 
-extension DetailViewController {
+extension AnimalDetailViewController {
     
     private func layoutConstraints() {
         NSLayoutConstraint.activate([

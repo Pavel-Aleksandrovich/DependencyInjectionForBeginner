@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewControllerCell: UITableViewCell {
+class AnimalDetailCell: UITableViewCell {
     
     private let stackView = UIStackView()
     private var nameLabel = UILabel()

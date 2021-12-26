@@ -7,8 +7,9 @@
 
 import UIKit
 
-final class ViewControllerViewModel {
+final class AnimalPresenter {
     private let dataManager: DataManager
+    weak var listViewController: AnimalListViewController?
 
     init(dataManager: DataManager) {
         self.dataManager = dataManager
@@ -24,4 +25,5 @@ final class ViewControllerViewModel {
     func fetchAnimals(errorClosure: @escaping () -> () ,successClosure: @escaping (Array<GenerelAnimalsVo>) -> ()) {
         dataManager.fetchAnimals(errorClosure: errorClosure, successClosure: successClosure)
     }
+    
 }

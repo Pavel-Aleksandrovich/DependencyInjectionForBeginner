@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListViewControllerCell: UITableViewCell {
+class AnimalCell: UITableViewCell {
     
     let idLabel = UILabel()
     let nameLabel = UILabel()

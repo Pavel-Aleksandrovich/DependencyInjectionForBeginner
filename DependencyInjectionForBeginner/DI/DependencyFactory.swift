@@ -9,10 +9,10 @@ import UIKit
 
 final class DependencyFactory {
     
-    func provideViewModel() -> ViewControllerViewModel {
+    func provideViewModel() -> AnimalPresenter {
         let remoteDataSource = RemoteDataSource()
         let dataManager = DataManager(remoteDataSource: remoteDataSource)
-        let viewModel = ViewControllerViewModel(dataManager: dataManager)
+        let viewModel = AnimalPresenter(dataManager: dataManager)
         return viewModel
     }
     
